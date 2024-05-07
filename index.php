@@ -18,7 +18,7 @@
                     <input type="number" id="fiveDigitInput" name="fiveDigitInput" onkeyup="check_digit()">
 
                 </form>
-                <button onclick="test()">Start</button>
+                <button onclick="test()" id="start_btn">Start</button>
                 <p id="demo2"></p>
                 <p id="demo"></p>
 
@@ -47,6 +47,7 @@
                 alert("Please Enter 5 Digits.")
             } else {
                 document.getElementById("fiveDigitInput").disabled = true;
+                document.getElementById("start_btn").disabled = true;
                 intervalId = setInterval(function () {
 
                     if (count <= 5) {
@@ -58,7 +59,7 @@
                             stopInter();
                         }
                     }
-                }, 60000);
+                }, 5000);//60000
             }
         }
 
@@ -79,7 +80,7 @@
                     count = 1;
                     str = "";
                     document.getElementById("fiveDigitInput").disabled = false;
-                    
+                    document.getElementById("start_btn").disabled = false;
                     var content = $(data);
                     $(".result_area").html(content);
                     console.log("success");
