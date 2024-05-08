@@ -43,7 +43,13 @@ function check_similar_digits($user_input, $random_output)
     $random_output = str_split($random_output);
     $similar_store = array();
     foreach ($user_arr as $key => $value) {
-        if ($value == $random_output[$key]) {
+        // check same value and position
+        // if ($value == $random_output[$key]) {
+        //     array_push($similar_store, $value);
+        // }
+
+        // check only same value
+        if(in_array($user_arr[$key], $random_output)){
             array_push($similar_store, $value);
         }
     }
